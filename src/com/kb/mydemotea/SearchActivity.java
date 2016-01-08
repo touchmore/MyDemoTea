@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,6 +19,11 @@ public class SearchActivity extends Activity {
 	private MyAdapter adapter;
 	private TextView tv_key;
 
+	// 上拉加载下一页
+	private boolean isBottom = false;
+	private int currentIndex = 1;
+	private String keyWord;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -27,12 +34,49 @@ public class SearchActivity extends Activity {
 		tv_key = (TextView) findViewById(R.id.tv_key);
 
 		Intent intent = getIntent();
-		String keyWord = intent.getStringExtra("keyWord");
+		keyWord = intent.getStringExtra("keyWord");
 
 		new LoadDataAsyncTask(listView, adapter, this)
 				.execute(Config.SEARCHPATH + "&rows=10&page=1&search="
 						+ keyWord);
+
 		tv_key.setText(keyWord);
+
+		// 添加滚动监听
+		listView.setOnScrollListener(new OnScrollListener() {
+
+			@Override
+			public void onScrollStateChanged(AbsListView view,// listview
+					int scrollState// 滚动状态
+			) {
+				// TODO Auto-generated method stub
+				if (isBottom && scrollState == SCROLL_STATE_IDLE) {
+					// 加载下一页
+					currentIndex++;
+					new LoadDataAsyncTask(listView, adapter,
+							SearchActivity.this).execute(Config.SEARCHPATH
+							+ "&rows=10&page=" + currentIndex + "&search="
+							+ keyWord);
+
+				}
+			}
+
+			@Override
+			public void onScroll(AbsListView view,// listview
+					int firstVisibleItem, // 第一个显示的条目的位置
+					int visibleItemCount, // 可见的条目个数
+					int totalItemCount // 一共多少个条目
+			) {
+				// TODO Auto-generated method stub
+				if (firstVisibleItem + visibleItemCount == totalItemCount) {// 滑到底部
+					isBottom = true;
+				} else {
+					isBottom = false;
+				}
+
+			}
+		});
+
 	}
 
 	@Override

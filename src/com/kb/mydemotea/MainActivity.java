@@ -39,10 +39,10 @@ public class MainActivity extends FragmentActivity {
 
 		for (int i = 0; i < linearLayout.getChildCount(); i++) {
 			TextView textView = (TextView) linearLayout.getChildAt(i);
-			textView.setTextColor(0xff619D01);
+			textView.setTextColor(0xff000000);
 		}
 		TextView textView = (TextView) linearLayout.getChildAt(0);
-		textView.setTextColor(0xffff0000);
+		textView.setTextColor(0xff619D01);
 
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout);
 		right = (LinearLayout) findViewById(R.id.right);
