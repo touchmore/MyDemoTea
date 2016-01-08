@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_tops"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </android.support.v4.view.ViewPager>
+
+        <TextView
+            android:id="@+id/tv_tops"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="#000"
+            android:alpha="0.7"
+            android:text="茶百科" 
+            android:textColor="#fff"/>
+
+        <LinearLayout
+            android:id="@+id/ll_tops"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="28dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dots2" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dots2" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dots2" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <com.kb.mydemotea.pulltorefresh.PullToRefreshListView
+        android:id="@+id/lv_tops"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </com.kb.mydemotea.pulltorefresh.PullToRefreshListView>
+
+</LinearLayout>

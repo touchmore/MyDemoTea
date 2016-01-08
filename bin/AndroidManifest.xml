@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kb.mydemotea"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="12"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_logo"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Light.NoTitleBar" >
+        <activity
+            android:name="com.kb.mydemotea.MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.kb.mydemotea.fragment.Fragment_tops"
+            android:label="@string/title_activity_frament_tops" >
+        </activity>
+        <activity
+            android:name="com.kb.mydemotea.WelcomeActivity"
+            android:label="@string/title_activity_welcome" >
+        </activity>
+        <activity
+            android:name="com.kb.mydemotea.BanquanActivity"
+            android:label="@string/title_activity_banquan" >
+        </activity>
+        <activity
+            android:name="com.kb.mydemotea.SuggestionActivity"
+            android:label="@string/title_activity_suggestion" >
+        </activity>
+        <activity
+            android:name="com.kb.mydemotea.WebActivity"
+            android:label="@string/title_activity_web" >
+        </activity>
+        <activity
+            android:name="com.kb.mydemotea.SearchActivity"
+            android:label="@string/title_activity_search" >
+        </activity>
+        <activity
+            android:name="com.kb.mydemotea.StartActivity"
+            android:label="@string/title_activity_start" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.kb.mydemotea.CollectActivity"
+            android:label="@string/title_activity_collect" >
+        </activity>
+        <activity
+            android:name="com.kb.mydemotea.CollectActivity2"
+            android:label="@string/title_activity_collect_activity2" >
+        </activity>
+        <activity
+            android:name="com.kb.mydemotea.HistoryActivity"
+            android:label="@string/title_activity_history" >
+        </activity>
+    </application>
+
+</manifest>
