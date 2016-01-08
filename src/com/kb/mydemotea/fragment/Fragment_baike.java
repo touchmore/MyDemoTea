@@ -31,15 +31,27 @@ public class Fragment_baike extends Fragment {
 	private boolean isBottom;// 是否到底部
 	private int currentIndex = 1;// 当前页
 	private int pageno;
-	private ListView listView;
+	// private ListView listView;
 	private MyAdapter adapter;
 	private View footer;
+	private View view;
+
+	private ListView listView = null;
+
+	// private PullToRefreshListView pullToRefreshListView = null;
+	// private static int no;
+
+	// private void initView() {
+	// pullToRefreshListView = (PullToRefreshListView) view
+	// .findViewById(R.id.lv_baike);
+	// listView = pullToRefreshListView.getRefreshableView();
+	// }
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		listView = new ListView(getActivity());
+		listView = new ListView(getActivity());// 所在方法，返回一个View
 		Bundle bundle = getArguments();
 		pageno = bundle.getInt("pageno");// 顶部滚动条的no
 		adapter = new MyAdapter(getActivity());
@@ -76,6 +88,9 @@ public class Fragment_baike extends Fragment {
 			break;
 		}
 
+		/**
+		 * 为ListView设置条目点击监听
+		 */
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override

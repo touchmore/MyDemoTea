@@ -39,7 +39,7 @@ public class MainActivity extends FragmentActivity {
 
 		for (int i = 0; i < linearLayout.getChildCount(); i++) {
 			TextView textView = (TextView) linearLayout.getChildAt(i);
-			textView.setTextColor(0xff666666);
+			textView.setTextColor(0xff619D01);
 		}
 		TextView textView = (TextView) linearLayout.getChildAt(0);
 		textView.setTextColor(0xffff0000);
@@ -128,7 +128,7 @@ public class MainActivity extends FragmentActivity {
 					textView.setTextColor(0xff666666);
 				}
 				TextView textView = (TextView) linearLayout.getChildAt(arg0);
-				textView.setTextColor(0xffff0000);
+				textView.setTextColor(0xff619D01);
 
 			}
 
@@ -162,7 +162,7 @@ public class MainActivity extends FragmentActivity {
 			textView.setTextColor(0xff666666);
 		}
 		TextView textView = (TextView) view;
-		textView.setTextColor(0xffff0000);
+		textView.setTextColor(0xff619D01);
 
 		// 触发相应的viewpager
 		viewPager.setCurrentItem(linearLayout.indexOfChild(view));

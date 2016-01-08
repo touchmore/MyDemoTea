@@ -22,6 +22,8 @@ import com.kb.mydemotea.adapter.MyAdapter;
 import com.kb.mydemotea.asynctask.LoadDataAsyncTask;
 import com.kb.mydemotea.asynctask.LoadPicAsyncTask;
 import com.kb.mydemotea.config.Config;
+import com.kb.mydemotea.pulltorefresh.PullToRefreshBase.OnLastItemVisibleListener;
+import com.kb.mydemotea.pulltorefresh.PullToRefreshBase.OnRefreshListener;
 import com.kb.mydemotea.pulltorefresh.PullToRefreshListView;
 
 public class Fragment_tops extends Fragment {
@@ -33,7 +35,7 @@ public class Fragment_tops extends Fragment {
 
 	private MyAdapter adapter;
 
-	private int no;
+	private static int no;
 	// 幻灯片
 
 	// 幻灯片信息
@@ -72,10 +74,10 @@ public class Fragment_tops extends Fragment {
 		new LoadPicAsyncTask(textView, viewPager, linearLayout, getActivity())
 				.execute(Config.HOMEPATH);
 
-		// 为ListView开启异步任务请求数据
+		// 开启异步任务为ListView请求数据
 		new LoadDataAsyncTask(listView, adapter, getActivity())
 				.execute(com.kb.mydemotea.config.Config.HEADLINEPATH);
-		// 为ListView设置监听
+		// 为ListView设置条目点击监听
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -106,25 +108,25 @@ public class Fragment_tops extends Fragment {
 			}
 		});
 
-		// // 设置刷新监听
-		// pullToRefreshListView.setOnRefreshListener(new OnRefreshListener() {
-		//
-		// @Override
-		// public void onRefresh() {
-		// // TODO Auto-generated method stub
-		// no = 0;
-		// }
-		// });
-		// // 设置加载监听
-		// pullToRefreshListView
-		// .setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
-		//
-		// @Override
-		// public void onLastItemVisible() {
-		// // TODO Auto-generated method stub
-		// no++;
-		// }
-		// });
+		// 设置刷新监听
+		pullToRefreshListView.setOnRefreshListener(new OnRefreshListener() {
+
+			@Override
+			public void onRefresh() {
+				// TODO Auto-generated method stub
+				no = 0;
+			}
+		});
+		// 设置加载监听
+		pullToRefreshListView
+				.setOnLastItemVisibleListener(new OnLastItemVisibleListener() {
+
+					@Override
+					public void onLastItemVisible() {
+						// TODO Auto-generated method stub
+						no++;
+					}
+				});
 		return view;
 	}
 }
