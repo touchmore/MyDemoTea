@@ -14,7 +14,7 @@ import android.util.Log;
 public class SqliteDBHelper extends SQLiteOpenHelper {
 
 	public SqliteDBHelper(Context context) {
-		super(context, "student.db", null, 4); // 版本是大于等于1的正整数
+		super(context, "student.db", null, 1); // 版本是大于等于1的正整数
 		// TODO Auto-generated constructor stub
 	}
 
